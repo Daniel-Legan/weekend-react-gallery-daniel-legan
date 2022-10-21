@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import GalleryList from '../GalleryList/GalleryList';
 
 function App() {
   // GET gallery on page load
@@ -27,6 +28,7 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
+        <GalleryList gallery={gallery}/>
         <img src="images/goat_small.jpg"/>
       </div>
     );

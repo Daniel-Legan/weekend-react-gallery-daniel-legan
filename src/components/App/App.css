@@ -16,3 +16,20 @@
 * {
   border: solid black;
 }
+
+p, img {
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  height: 250px;
+}

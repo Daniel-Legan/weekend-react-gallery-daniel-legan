@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-function GalleryItem({ item }) {
-    const [view, setView] = useState(true);
 
-    // const view = () => {
-    //     <img src={item.path}/>
-    // }
+function GalleryItem({ item, updateLikes }) {
+    const [view, setView] = useState(true);
 
     // Inline If/Else with Logical && Operator
     return (
@@ -18,9 +15,9 @@ function GalleryItem({ item }) {
                 }
                 {/* <div onClick={() => { setView(!view) }}>CLICK HERE</div> */}
                 <div>
-                <button>love it</button>
+                    <button onClick={() => { updateLikes(item.id) }}>like it</button>
                 </div>
-                <div>{item.likes} people love this</div>
+                <div>{item.likes} people like this</div>
             </div>
         </>
     );

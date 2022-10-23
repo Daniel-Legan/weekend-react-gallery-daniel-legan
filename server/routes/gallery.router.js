@@ -61,4 +61,25 @@ router.put('/like/:id', (req, res) => {
         });
 }); // End PUT Route
 
+// POST Route
+router.post('/', (req, res) => {
+
+    const item = req.body;
+
+    const sqlText = `INSERT INTO "gallery" ("path", "description")
+                        VALUES ($1, $2);`;
+
+    pool.query(sqlText, [item.path, item.description])
+        .then((databaseResult) => {
+            console.log('added item to the database', item);
+
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log('error posting item to the database', error);
+
+            res.sendStatus(500);
+        })
+}); // End POST Route
+
 module.exports = router;

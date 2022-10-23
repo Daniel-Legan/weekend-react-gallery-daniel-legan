@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const galleryItems = require('../modules/gallery.data');
+// const galleryItems = require('../modules/gallery.data');
 const pool = require('../modules/pool');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
@@ -31,7 +31,6 @@ router.get('/', (req, res) => {
     pool.query(sqlText)
         .then((result) => {
             // console.log(result.rows);
-
             res.send(result.rows);
         })
         .catch((error) => {
@@ -41,33 +40,12 @@ router.get('/', (req, res) => {
         })
 }); // End GET Route
 
-// PUT Route
-router.put('/like/:id', (req, res) => {
-    console.log('in PUT with id', req.params.id);
-    console.log(req.params); // { id: '#' }
-    const galleryId = req.params.id;
-
-
-    const sqlText = `UPDATE "gallery" SET "likes" = "likes" + 1 WHERE "id" = $1;`;
-
-    pool.query(sqlText, [galleryId])
-        .then((databaseResult) => {
-            // okay
-            res.sendStatus(200);
-        })
-        .catch((error) => {
-            console.log('error updating gallery item', error);
-            res.sendStatus(500);
-        });
-}); // End PUT Route
-
 // POST Route
 router.post('/', (req, res) => {
 
     const item = req.body;
 
-    const sqlText = `INSERT INTO "gallery" ("path", "description")
-                        VALUES ($1, $2);`;
+    const sqlText = `INSERT INTO "gallery" ("path", "description") VALUES ($1, $2);`;
 
     pool.query(sqlText, [item.path, item.description])
         .then((databaseResult) => {
@@ -81,5 +59,44 @@ router.post('/', (req, res) => {
             res.sendStatus(500);
         })
 }); // End POST Route
+
+// PUT Route
+router.put('/like/:id', (req, res) => {
+    console.log('in PUT with id', req.params.id);
+    console.log(req.params); // { id: '#' }
+    const galleryId = req.params.id;
+
+    const sqlText = `UPDATE "gallery" SET "likes" = "likes" + 1 WHERE "id" = $1;`;
+
+    pool.query(sqlText, [galleryId])
+        .then((databaseResult) => {
+            // okay
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log('error updating gallery item', error);
+            res.sendStatus(500);
+        })
+}); // End PUT Route
+
+// DELETE Route
+router.delete('/like/:id', (req, res) => {
+    console.log('in DELETE with id', req.params.id);
+    console.log(req.params); // { id: '#' }
+    const galleryId = req.params.id;
+
+    const sqlText = `DELETE FROM "gallery" WHERE "id" = $1;`;
+    const sqlParams = [galleryId];
+
+    pool.query(sqlText, sqlParams)
+        .then((databaseResult) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log('error in DELETE', err);
+
+            res.sendStatus(500);
+        })
+}); // End DELETE Route
 
 module.exports = router;

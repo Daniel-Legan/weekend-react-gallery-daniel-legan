@@ -30,11 +30,11 @@ function App() {
       url: '/gallery',
       data: newImage
     })
-      .then((response) => {
+      .then(response => {
         console.log('POST response.data from server', response.data); // Ok
         getGallery();
       })
-      .catch((err) => {
+      .catch(err => {
         console.log('POST err from server', err);
       })
   }
@@ -51,6 +51,21 @@ function App() {
       })
   }
 
+  // DELETE
+  const deleteImage = (id) => {
+    axios({
+      method: 'DELETE',
+      url: `/gallery/like/${id}`
+    })
+      .then(response => {
+        console.log('DELETE response from server', response.data); // Ok
+        getGallery()
+      })
+      .catch(err => {
+        console.log('DELETE err from server', err);
+      })
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -60,7 +75,7 @@ function App() {
           updateLikes is the axios call
           updateLikes is shipped to GalleryList.jsx, then to GalleryItem.jsx where it is called when "like it" is pressed */}
       <PostForm postImage={postImage} />
-      <GalleryList gallery={gallery} updateLikes={updateLikes} />
+      <GalleryList gallery={gallery} updateLikes={updateLikes} deleteImage={deleteImage} />
     </div>
   );
 }

@@ -1,4 +1,10 @@
 import { useState } from 'react';
+import Button from '@mui/material/Button';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 
 function PostForm({ postImage }) {
 
@@ -35,13 +41,14 @@ function PostForm({ postImage }) {
                     {/* INPUT IMAGE DESCRIPTION */}
                     <label>Description:</label>
                     <input
+                        className="description"
                         type="text"
                         placeholder="description"
                         onChange={(evt) => setNewImageDescription(evt.target.value)}
                         value={newImageDescription}
                     />
                     {/* SUBMIT FORM BUTTON */}
-                    <button type="submit">Submit</button>
+                    <Button variant="contained" type="submit">Submit</Button>
                 </span>
 
             </form>

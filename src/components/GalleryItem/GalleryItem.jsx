@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '@mui/material/Button';
 
 function GalleryItem({ item, updateLikes, deleteImage }) {
     const [view, setView] = useState(true);
@@ -16,13 +17,13 @@ function GalleryItem({ item, updateLikes, deleteImage }) {
                 {/* <div onClick={() => { setView(!view) }}>CLICK HERE</div> */}
                 <div>
                     {/* updateLikes is the axios call */}
-                    <button onClick={() => { updateLikes(item.id) }}>like it</button>
-                    <button onClick={() => { deleteImage(item.id)}}>delete</button>
+                    <Button onClick={() => { updateLikes(item.id) }}>like</Button>
+                    <Button onClick={() => { deleteImage(item.id) }}>delete</Button>
                 </div>
-                {/* <div>{item.likes} people like this</div> */}
-                <div>{(item.likes === 0) ?
-                    item.likes + ' people like this :(' :
-                    item.likes + ' people like this!'}
+
+                <div>{(item.likes === 1) ?
+                    item.likes + ' person likes this' :
+                    item.likes + ' people like this'}
                 </div>
             </div>
         </>

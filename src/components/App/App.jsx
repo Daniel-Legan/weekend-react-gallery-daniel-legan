@@ -4,6 +4,7 @@ import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
 import PostForm from '../PostForm/PostForm';
 
+
 function App() {
   // GET gallery on page load
   useEffect(() => { getGallery() }, []);

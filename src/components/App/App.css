@@ -13,17 +13,30 @@
   font-size: 1.5em;
 }
 
-* {
+/* * {
   border: solid black;
-}
+} */
 
 p, img {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   padding: 10px;
   margin-top: 0;
   margin-bottom: 0;
   display: block; /* display: block, removes white space (3px) under images */
+}
+
+p {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+span, input {
+  margin: 5px;
+}
+
+.description {
+  width: 300px;
 }
 
 p, img, button {
@@ -36,5 +49,5 @@ main {
 }
 
 .item {
-  height: 220px;
+  height: 400px;
 }

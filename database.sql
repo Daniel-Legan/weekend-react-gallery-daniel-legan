@@ -1,3 +1,5 @@
+-- database name: react_gallery
+
 DROP TABLE IF EXISTS "gallery";
 
 CREATE TABLE "gallery" (

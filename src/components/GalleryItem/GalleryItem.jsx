@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function GalleryItem({ item, updateLikes }) {
+function GalleryItem({ item, updateLikes, deleteImage }) {
     const [view, setView] = useState(true);
 
     return (
@@ -17,6 +17,7 @@ function GalleryItem({ item, updateLikes }) {
                 <div>
                     {/* updateLikes is the axios call */}
                     <button onClick={() => { updateLikes(item.id) }}>like it</button>
+                    <button onClick={() => { deleteImage(item.id)}}>delete</button>
                 </div>
                 {/* <div>{item.likes} people like this</div> */}
                 <div>{(item.likes === 0) ?

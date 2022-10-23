@@ -1,6 +1,6 @@
 import GalleryItem from "../GalleryItem/GalleryItem";
 
-function GalleryList({ gallery, updateLikes }) {
+function GalleryList({ gallery, updateLikes, deleteImage }) {
     // updateLikes is the axios call
     // continue to ship it to each GalleryItem as a prop
     return (
@@ -11,6 +11,7 @@ function GalleryList({ gallery, updateLikes }) {
                         key={item.id}
                         item={item}
                         updateLikes={updateLikes}
+                        deleteImage={deleteImage}
                     />
                 ))}
             </main>

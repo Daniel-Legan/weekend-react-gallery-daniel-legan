@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+// import '@fontsource/roboto/300.css';
+// import '@fontsource/roboto/400.css';
+// import '@fontsource/roboto/500.css';
+// import '@fontsource/roboto/700.css';
 
 
 function PostForm({ postImage }) {
@@ -25,13 +25,14 @@ function PostForm({ postImage }) {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form action="/profile" method="post" enctype="multipart/form-data" onSubmit={handleSubmit}>
 
                 <span>
                     {/* INPUT IMAGE PATH */}
-                    <label>Path:</label>
+                    <label><b>Path:</b></label>
                     <input
-                        type="text"
+                        type="file"
+                        name="avatar"
                         placeholder="path"
                         onChange={(evt) => setNewImagePath(evt.target.value)}
                         value={newImagePath}
@@ -39,7 +40,7 @@ function PostForm({ postImage }) {
                 </span>
                 <span>
                     {/* INPUT IMAGE DESCRIPTION */}
-                    <label>Description:</label>
+                    <label><b>Description:</b></label>
                     <input
                         className="description"
                         type="text"

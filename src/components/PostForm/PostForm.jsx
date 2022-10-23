@@ -19,23 +19,27 @@ function PostForm({ postImage }) {
             path: newImagePath,
             description: newImageDescription,
         };
-        
+
         postImage(newImage);
+        
+        setNewImagePath('');
+        setNewImageDescription('');
     }
 
     return (
         <>
-            <form action="/profile" method="post" enctype="multipart/form-data" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
 
                 <span>
                     {/* INPUT IMAGE PATH */}
                     <label><b>Path:</b></label>
                     <input
-                        type="file"
-                        name="avatar"
-                        placeholder="path"
+                        className="path"
+                        type="text"
+                        placeholder="e.g. images/IMG_3672.jpeg"
                         onChange={(evt) => setNewImagePath(evt.target.value)}
                         value={newImagePath}
+                        required
                     />
                 </span>
                 <span>

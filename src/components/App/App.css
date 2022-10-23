@@ -40,6 +40,10 @@ span, input {
   width: 300px;
 }
 
+.path {
+  width: 200px;
+}
+
 p, img, button {
   cursor: pointer;
 }
@@ -47,10 +51,17 @@ p, img, button {
 main {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+form {
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .item {
   height: 400px;
-  border: black solid 5px;
+  border: #222 solid 3px;
   margin: 20px;
+  border-radius: 8px;
 }

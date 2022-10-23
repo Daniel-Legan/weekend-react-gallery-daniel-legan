@@ -13,9 +13,7 @@ function PostForm({ postImage }) {
             path: newImagePath,
             description: newImageDescription,
         };
-
-        // ADD NEW OBJECT TO GALLERY
-        console.log(newImage);
+        
         postImage(newImage);
     }
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
-import PostForm from '../PostImage/PostForm';
+import PostForm from '../PostForm/PostForm';
 
 function App() {
   // GET gallery on page load
@@ -31,7 +31,7 @@ function App() {
       data: newImage
     })
       .then((response) => {
-        console.log('POST response.data from server', response.data);
+        console.log('POST response.data from server', response.data); // Ok
         getGallery();
       })
       .catch((err) => {
@@ -43,7 +43,7 @@ function App() {
   const updateLikes = (id) => {
     axios.put(`/gallery/like/${id}`)
       .then(response => {
-        console.log('PUT response from server', response.data); // Ok
+        console.log('PUT response.data from server', response.data); // Ok
         getGallery();
       })
       .catch(err => {

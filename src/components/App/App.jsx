@@ -24,10 +24,9 @@ function App() {
 
   // PUT
   const updateLikes = (id) => {
-    console.log('in updateLikes');
     axios.put(`/gallery/like/${id}`)
       .then(response => {
-        console.log('PUT response from server', response.data);
+        console.log('PUT response from server', response.data); // Ok
         getGallery();
       })
       .catch(err => {
@@ -40,8 +39,10 @@ function App() {
       <header className="App-header">
         <h1 className="App-title">Gallery of My Life</h1>
       </header>
+      {/* gallery is the entire gallery
+          updateLikes is the axios call
+          updateLikes is shipped to GalleryList.jsx, then to GalleryItem.jsx where it is called when "like it" is pressed */}
       <GalleryList gallery={gallery} updateLikes={updateLikes} />
-      {/* <img src="images/goat_small.jpg"/> */}
     </div>
   );
 }

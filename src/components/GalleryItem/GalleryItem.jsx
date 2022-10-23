@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 function GalleryItem({ item, updateLikes }) {
     const [view, setView] = useState(true);
 
-    // Inline If/Else with Logical && Operator
     return (
         <>
             <div className="item">
+                {/* Inline If/Else with Logical && Operator */}
                 {view &&
                     <img onClick={() => { setView(!view) }} src={item.path} />
                 }
@@ -15,9 +15,14 @@ function GalleryItem({ item, updateLikes }) {
                 }
                 {/* <div onClick={() => { setView(!view) }}>CLICK HERE</div> */}
                 <div>
+                    {/* updateLikes is the axios call */}
                     <button onClick={() => { updateLikes(item.id) }}>like it</button>
                 </div>
-                <div>{item.likes} people like this</div>
+                {/* <div>{item.likes} people like this</div> */}
+                <div>{(item.likes === 0) ?
+                    item.likes + ' people like this :(' :
+                    item.likes + ' people like this!'}
+                </div>
             </div>
         </>
     );

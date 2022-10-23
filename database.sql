@@ -12,7 +12,7 @@ CREATE TABLE "gallery" (
 INSERT INTO "gallery" ("path", "description")
 VALUES ('images/IMG_0099.jpeg', 'A hike in Colorado Springs.'), 
 ('images/IMG_0615.jpeg', 'My first time at Jollibee on a trip to Chicago.'),
-('images/IMG_0519.jpg.jpeg', 'The time I caught a cool fish in Miami.'),
+('images/IMG_0519.jpg', 'The time I caught a cool fish in Miami.'),
 ('images/IMG_1146.jpeg', 'Enjoying life on the Stone Arch Bridge.'),
 ('images/IMG_1229.jpeg', 'Hiking the Hollywood sign in Los Angeles.'),
 ('images/IMG_1291.jpeg', 'Almost freezing to death while ice fishing.'),
